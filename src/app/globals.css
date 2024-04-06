@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+        rgb(var(--background-start-rgb));
+}
+#splide01 .splide__pagination button {
+    height: 2px;
+    border-radius: 10px;
+    width: 12px;
+}
+#splide01 .splide__pagination button.is-active {
+    background: #ff3366;
+}
+#splide01 .splide__pagination {
+    bottom: -1.5em;
+    /* gap: 10px; */
+}
+.terminal--wrap {
+    @apply bg-[#000] flex-1 p-4 h-full overflow-x-hidden overflow-y-auto;
+}
+.terminal--wrap::-webkit-scrollbar {
+    background-color: #000;
+    width: 2px;
+}
+.terminal--wrap::-webkit-scrollbar-track {
+    width: 2px;
+    background-color: #000;
+}
+.terminal--wrap::-webkit-scrollbar-thumb {
+    width: 0.5px;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+.skill-list:hover a p svg:not(:hover) {
+    scale: 0.8;
+}
+.skill-list a p:hover svg {
+    fill: var(--color);
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+@layer base {
+    @font-face {
+        font-family: "JetBrain Bold";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(../assets/JetBrain/JetBrainsMono-Bold.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "JetBrain Italic";
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url(../assets/JetBrain/JetBrainsMono-Italic.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "JetBrain Regular";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(../assets/JetBrain/JetBrainsMono-Regular.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "JetBrain SemiBold";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(../assets/JetBrain/JetBrainsMono-SemiBold.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "Mt Regular";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(../assets/Mt/Mt-Regular.otf) format("opentype");
+    }
+    @font-face {
+        font-family: "Mt Bold";
+        font-style: bold;
+        font-weight: 800;
+        font-display: swap;
+        src: url(../assets/Mt/Mt-Bold.otf) format("opentype");
+    }
+    @font-face {
+        font-family: "Mt SemiBold";
+        font-style: bold;
+        font-weight: 600;
+        font-display: swap;
+        src: url(../assets/Mt/Mt-SemiBold.otf) format("opentype");
+    }
+    input {
+        @apply outline-none border-0;
+    }
+}
