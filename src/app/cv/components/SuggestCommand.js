@@ -11,19 +11,15 @@ import { twMerge } from "tailwind-merge";
 export function SuggestCommand() {
     const pathname = usePathname();
     var suggestCommands;
-    switch (pathname) {
-        case "/cv/about":
-            suggestCommands = [...commands, commandAboutPage];
-            break;
-        case "/cv/skill":
-            suggestCommands = [...commands, commandSkillPage];
-            break;
-        case "/cv/project":
-            suggestCommands = [...commands, commandProjectPage];
-            break;
-        default:
-            suggestCommands = [...commands];
-            break;
+    if (pathname == "/cv/about") {
+        suggestCommands = [...commands, commandAboutPage];
+        console.log(suggestCommands);
+    } else if (pathname == "/cv/skill") {
+        suggestCommands = [...commands, commandSkillPage];
+    } else if (pathname == "/cv/project") {
+        suggestCommands = [...commands, commandProjectPage];
+    } else {
+        suggestCommands = [...commands];
     }
     return (
         <div className="flex flex-col gap-y-1">

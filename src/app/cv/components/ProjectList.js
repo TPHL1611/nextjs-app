@@ -12,7 +12,7 @@ import { twMerge } from "tailwind-merge";
 
 const iconStyle = "w-3 h-3";
 const listStyle = "list-decimal mt-4 text-[15px]";
-const linkStyle = "flex gap-x-2 items-center tracking-wide";
+const linkStyle = "flex gap-x-2 items-center tracking-wide w-fit duration-300 hover:text-amber-300";
 const olStyle = "pl-5 ml-5";
 const titleStyle = "mt-5 text-xl text-amber-300";
 
