@@ -18,5 +18,6 @@ const Setting = React.forwardRef((props, ref) => {
         </div>
     );
 });
+
 Setting.displayName = "Setting";
 export default Setting;

@@ -4,10 +4,10 @@ import { About } from "./components/About";
 import Alarm from "./components/Alarm";
 import { Header } from "./components/Header";
 import { Timer } from "./components/Timer";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useRef, useState } from "react";
+import { IoClose } from "react-icons/io5";
+import Setting from "./components/Setting";
+import { twMerge } from "tailwind-merge";
 
 export default function Pomodoro() {
     const audioRef = useRef(null);
@@ -105,61 +105,63 @@ export default function Pomodoro() {
                 {/* End Body */}
                 <About />
                 {/* Modal */}
-                <Modal show={isModalOpen} onHide={handleClose} centered>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Cài đặt</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className="flex justify-between gap-4">
-                        <div className="flex flex-col items-center">
-                            <label htmlFor="pomo">Thời gian</label>
-                            <input
-                                id="pomo"
-                                type="number"
-                                className="w-full text-center border border-slate-950 rounded-[5px] mt-1 py-1 px-3"
+                <div
+                    className={twMerge(
+                        "fixed top-0 left-0 bottom-0 right-0 bg-black/[.5] flex items-center justify-center duration-300",
+                        isModalOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                    )}
+                    onClick={() => {
+                        setIsModalOpen(false);
+                    }}>
+                    <div
+                        className={twMerge(
+                            "bg-white max-w-[500px] rounded-xl p-6 duration-200 text-black",
+                            isModalOpen ? "translate-y-4" : "translate-y-0"
+                        )}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                        }}>
+                        <div className="flex items-center justify-between mb-5 font-mt-bold text-base">
+                            <p>Cài đặt</p>
+                            <IoClose
+                                className="w-6 h-6 cursor-pointer"
+                                onClick={() => {
+                                    setIsModalOpen(false);
+                                }}
+                            />
+                        </div>
+                        <div className="flex gap-x-3">
+                            <Setting
                                 ref={pomoInputRef}
-                                min="0"
-                                value={pomodoroTime}
-                                onChange={(e) => setPomodoroTime(e.target.value)}
+                                inputID="pomo"
+                                valueTime={pomodoroTime}
+                                setValueTime={setPomodoroTime}
                             />
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <label htmlFor="short">Quãng nghỉ ngắn</label>
-                            <input
-                                id="short"
-                                type="number"
-                                className="w-full text-center border border-slate-950 rounded-[5px] mt-1 py-1 px-3"
+                            <Setting
                                 ref={shortInputRef}
-                                min="0"
-                                value={shortBreak}
-                                onChange={(e) => setShortBreak(e.target.value)}
+                                inputID="short"
+                                valueTime={shortBreak}
+                                setValueTime={setShortBreak}
                             />
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <label htmlFor="long">Quãng nghỉ dài</label>
-                            <input
-                                id="long"
-                                type="number"
-                                className="w-full text-center border border-slate-950 rounded-[5px] mt-1 py-1 px-3"
+                            <Setting
                                 ref={longInputRef}
-                                min="0"
-                                value={longBreak}
-                                onChange={(e) => setLongBreak(e.target.value)}
+                                inputID="long"
+                                valueTime={longBreak}
+                                setValueTime={setLongBreak}
                             />
                         </div>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button
-                            variant="primary"
-                            onClick={() => {
-                                handleClose(), handleSave();
-                            }}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                        <div className="mt-5">
+                            <p
+                                className="bg-red-400 text-white rounded-[5px] py-2 px-5 w-fit ml-auto cursor-pointer"
+                                onClick={() => {
+                                    setIsModalOpen(false);
+                                    handleSave;
+                                }}>
+                                Lưu thay đổi
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 {/* End Modal */}
             </div>
         </main>
