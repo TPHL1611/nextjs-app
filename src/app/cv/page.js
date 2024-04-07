@@ -12,4 +12,5 @@ const CV = React.forwardRef(() => {
         </div>
     );
 });
+CV.displayName = "CV";
 export default CV;

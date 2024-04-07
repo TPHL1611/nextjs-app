@@ -7,4 +7,5 @@ const Alarm = forwardRef(function (props, ref) {
         </audio>
     );
 });
+Alarm.displayName = "Alarm";
 export default Alarm;
