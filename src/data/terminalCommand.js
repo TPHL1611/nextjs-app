@@ -22,7 +22,7 @@ export const commands = [
 ];
 export const commandAboutPage = {
     id: 5,
-    command_name: "personal",
+    command_name: "ps",
     command_description: "Thông tin cá nhân",
 };
 export const commandProjectPage = {
