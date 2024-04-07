@@ -10,7 +10,7 @@ import { IoClose } from "react-icons/io5";
 import { RiGitRepositoryPrivateFill } from "react-icons/ri";
 import { twMerge } from "tailwind-merge";
 
-const iconStyle = "hidden md:inline-flex w-3 h-3";
+const iconStyle = "w-3 h-3";
 const listStyle = "list-decimal mt-4";
 const linkStyle =
     "flex gap-x-2 items-center tracking-wide w-fit duration-300 hover:text-amber-300 text-sm md:text-[15px]";
