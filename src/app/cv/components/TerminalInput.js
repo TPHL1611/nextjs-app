@@ -18,4 +18,5 @@ const TerminalInput = React.forwardRef((props, ref) => {
         </div>
     );
 });
+TerminalInput.displayName = "TerminalInput";
 export default TerminalInput;
