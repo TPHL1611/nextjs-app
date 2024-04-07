@@ -50,8 +50,10 @@ export default function CVRootLayout({ children }) {
     }
     useEffect(() => {
         const documentHeight = () => {
-            const doc = document.documentElement;
-            doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+            const cvLayout = document.querySelector('.cv-layout');
+            if (window.clientWidth < 737) {
+                 cvLayout.style.setProperty("--doc-height", `${window.innerHeight}px`);   
+            }
         };
         window.addEventListener("resize", documentHeight);
         documentHeight();
