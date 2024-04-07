@@ -13,16 +13,16 @@ export function About() {
                 <p>
                     <b>Quá trình làm việc</b>:
                 </p>
-                <ul className="ml-3 pl-4">
+                <ul className="ml-3 pl-[5px] md:pl-4">
                     <li className="list-disc mt-2">
-                        <p className="flex gap-x-2">
+                        <p className="flex flex-col md:flex-row gap-y-2.5 md:gay-y-0 md:gap-x-2">
                             <span>2018 - 2021:</span>
                             <span>Tốt nghiệp Đại học Tài chính - Marketing</span>
                         </p>
                         <p className="mt-2">(Ngành hệ thống thông tin kế toán)</p>
                     </li>
                     <li className="list-disc mt-3">
-                        <p className="flex gap-x-2">
+                        <p className="flex gap-x-2 flex-col md:flex-row">
                             <span>2021 - nay:</span>
                             <span>Công ty PutaDesign</span>
                         </p>

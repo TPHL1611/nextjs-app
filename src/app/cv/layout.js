@@ -10,11 +10,11 @@ import { commands } from "@/data/terminalCommand";
 import { usePathname } from "next/navigation";
 import { getErrorDescriptionForCommand } from "@/utils/getErrorDescriptionForCommand";
 import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
+import * as rdd from "react-device-detect";
 
 export const HistoryContext = createContext(null);
 
 export default function CVRootLayout({ children }) {
-    console.log(rdd.isMobile);
     const inputRef = useRef(null);
 
     const [isTerminalClose, setIsTerminalClose] = useState(false);
@@ -53,22 +53,10 @@ export default function CVRootLayout({ children }) {
 
     return (
         <HistoryContext.Provider value={historyCommands}>
-            <main className="flex min-h-screen flex-col justify-center bg-[#202020] p-24 relative font-jet-regular">
-                <BrowserView>
-                    <h1>This is rendered only in browser</h1>
-                </BrowserView>
-                <MobileView>
-                    <h1>This is rendered only on mobile</h1>
-                </MobileView>
-                {/* <Link
-                    href="/"
-                    className="w-full text-white flex gap-3 items-center mb-8 max-w-[600px] mx-auto underline underline-offset-8">
-                    <FaLongArrowAltLeft />
-                    <span>Trang chủ</span>
-                </Link> */}
+            <main className="flex min-h-screen flex-col justify-center bg-[#202020] p-0 md:p-24 relative font-jet-regular">
                 <div
                     className={twMerge(
-                        "h-full min-h-[500px] max-h-[500px] w-full max-w-[600px] rounded-xl overflow-hidden flex flex-col shadow-2xl shadow-[#ffffff1c] duration-200 mx-auto",
+                        "h-full md:min-h-[500px] md:max-h-[500px] w-full max-w-[600px] rounded-none md:rounded-xl overflow-hidden flex flex-1 md:flex-none flex-col shadow-2xl shadow-[#ffffff1c] duration-200 mx-auto",
                         isTerminalClose ? "scale-0" : "scale-100"
                     )}>
                     <TerminalHeader
@@ -79,7 +67,7 @@ export default function CVRootLayout({ children }) {
                     />
                     <div className="terminal--wrap">
                         {children}
-                        <div className="mt-6">
+                        <div className="mt-3 md:mt-6">
                             <TerminalInput
                                 ref={inputRef}
                                 valueCommand={valueCommand}
@@ -91,10 +79,13 @@ export default function CVRootLayout({ children }) {
                 </div>
                 <IoTerminal
                     className={twMerge(
-                        "w-10 h-10 duration-200 absolute l-24 top-1/2 -translate-y-1/2",
+                        "w-10 h-10 duration-200 absolute md:l-24 left-1/2 top-1/2 -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2",
                         isTerminalClose ? "scale-100" : "scale-0"
                     )}
-                    onDoubleClick={() => setIsTerminalClose(!isTerminalClose)}
+                    onDoubleClick={() => {
+                        setIsTerminalClose(!isTerminalClose);
+                        setHistoryCommands([]);
+                    }}
                 />
             </main>
         </HistoryContext.Provider>

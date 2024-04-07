@@ -10,10 +10,11 @@ import { IoClose } from "react-icons/io5";
 import { RiGitRepositoryPrivateFill } from "react-icons/ri";
 import { twMerge } from "tailwind-merge";
 
-const iconStyle = "w-3 h-3";
-const listStyle = "list-decimal mt-4 text-[15px]";
-const linkStyle = "flex gap-x-2 items-center tracking-wide w-fit duration-300 hover:text-amber-300";
-const olStyle = "pl-5 ml-5";
+const iconStyle = "hidden md:inline-flex w-3 h-3";
+const listStyle = "list-decimal mt-4";
+const linkStyle =
+    "flex gap-x-2 items-center tracking-wide w-fit duration-300 hover:text-amber-300 text-sm md:text-[15px]";
+const olStyle = "pl-[5px] md:pl-5 ml-5";
 const titleStyle = "mt-5 text-xl text-amber-300";
 
 export function ProjectList() {
