@@ -29,4 +29,5 @@ const TerminalHeader = React.forwardRef((props, ref) => {
         </div>
     );
 });
+TerminalHeader.displayName = "TerminalHeader";
 export default TerminalHeader;
