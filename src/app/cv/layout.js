@@ -9,7 +9,7 @@ import TerminalInput from "./components/TerminalInput";
 import { commands } from "@/data/terminalCommand";
 import { usePathname } from "next/navigation";
 import { getErrorDescriptionForCommand } from "@/utils/getErrorDescriptionForCommand";
-import * as rdd from "react-device-detect";
+import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
 export const HistoryContext = createContext(null);
 
@@ -54,6 +54,12 @@ export default function CVRootLayout({ children }) {
     return (
         <HistoryContext.Provider value={historyCommands}>
             <main className="flex min-h-screen flex-col justify-center bg-[#202020] p-24 relative font-jet-regular">
+                <BrowserView>
+                    <h1>This is rendered only in browser</h1>
+                </BrowserView>
+                <MobileView>
+                    <h1>This is rendered only on mobile</h1>
+                </MobileView>
                 {/* <Link
                     href="/"
                     className="w-full text-white flex gap-3 items-center mb-8 max-w-[600px] mx-auto underline underline-offset-8">
