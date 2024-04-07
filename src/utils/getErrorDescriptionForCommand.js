@@ -10,7 +10,7 @@ export function getErrorDescriptionForCommand(command) {
         case "ls":
             desc = "show_project";
             break;
-        case "personal":
+        case "ps":
             desc = "show_about";
             break;
         case "sk":
