@@ -53,7 +53,7 @@ export default function CVRootLayout({ children }) {
     return (
         <HistoryContext.Provider value={historyCommands}>
             <Div100vh>
-                <main className="flex flex-col justify-center bg-[#202020] p-0 md:p-24 relative font-jet-regular">
+                <main className="h-full flex flex-col justify-center bg-[#202020] p-0 md:p-24 relative font-jet-regular">
                     <div
                         className={twMerge(
                             "h-full md:min-h-[500px] md:max-h-[500px] w-full max-w-[600px] rounded-none md:rounded-xl overflow-hidden flex flex-1 md:flex-none flex-col shadow-2xl shadow-[#ffffff1c] duration-200 mx-auto",
