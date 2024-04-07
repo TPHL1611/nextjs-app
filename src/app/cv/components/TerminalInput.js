@@ -9,7 +9,7 @@ const TerminalInput = React.forwardRef((props, ref) => {
             <input
                 type="text"
                 placeholder="Nhập câu lệnh tại đây ... "
-                className="bg-transparent text-xs ml-1 p-2 outline-none focus:outline-none border-0 flex-1"
+                className="bg-transparent border-b border-white md:border-b-0 text-xs ml-1 p-2 outline-none focus:outline-none border-0 flex-1"
                 ref={ref}
                 value={props.valueCommand}
                 onChange={(e) => props.setValueCommand(e.target.value)}
