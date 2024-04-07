@@ -3,14 +3,12 @@ import { twMerge } from "tailwind-merge";
 import { IoTerminal } from "react-icons/io5";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import Link from "next/link";
-import { useState, useRef, createContext, useContext } from "react";
+import { useState, useRef, createContext, useContext, useEffect } from "react";
 import TerminalHeader from "./components/TerminalHeader";
 import TerminalInput from "./components/TerminalInput";
 import { commands } from "@/data/terminalCommand";
 import { usePathname } from "next/navigation";
 import { getErrorDescriptionForCommand } from "@/utils/getErrorDescriptionForCommand";
-import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
-import * as rdd from "react-device-detect";
 
 export const HistoryContext = createContext(null);
 
@@ -50,10 +48,21 @@ export default function CVRootLayout({ children }) {
             inputRef.current.scrollIntoView();
         }
     }
+    useEffect(() => {
+        const documentHeight = () => {
+            const doc = document.documentElement;
+            doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+        };
+        window.addEventListener("resize", documentHeight);
+        documentHeight();
+        return () => {
+            window.removeEventListener("resize", documentHeight);
+        };
+    }, []);
 
     return (
         <HistoryContext.Provider value={historyCommands}>
-            <main className="flex min-h-screen flex-col justify-center bg-[#202020] p-0 md:p-24 relative font-jet-regular">
+            <main className="cv-layout flex min-h-screen flex-col justify-center bg-[#202020] p-0 md:p-24 relative font-jet-regular">
                 <div
                     className={twMerge(
                         "h-full md:min-h-[500px] md:max-h-[500px] w-full max-w-[600px] rounded-none md:rounded-xl overflow-hidden flex flex-1 md:flex-none flex-col shadow-2xl shadow-[#ffffff1c] duration-200 mx-auto",
