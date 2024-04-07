@@ -1,9 +1,8 @@
 export const homeData = [
     {
         id: 1,
-        title: "MyTour Clone",
-        url: "mytourclone",
-        isDevelop: true,
+        title: "Porfolio with Terminal UI",
+        url: "cv",
     },
     {
         id: 2,
@@ -12,8 +11,8 @@ export const homeData = [
     },
     {
         id: 3,
-        title: "Porfolio with Terminal UI",
-        url: "cv",
+        title: "MyTour Clone",
+        url: "mytourclone",
         isDevelop: true,
     },
     {
