@@ -12,7 +12,7 @@ export default function Home() {
                     <Link
                         href={`/${data.url}`}
                         key={data.id}
-                        className="rounded-xl border border-white-800 px-3 text-sm py-5 text-center w-[48%] shadow-md shadow-[#ffffff1c] hover:shadow-lg hover:shadow-[#ffffff3d] duration-500 hover:-translate-y-1">
+                        className="rounded-xl border border-white-800 px-3 text-sm py-5 text-center w-full md:w-[48%] shadow-md shadow-[#ffffff1c] hover:shadow-lg hover:shadow-[#ffffff3d] duration-500 hover:-translate-y-1">
                         <p className="flex flex-col justify-center gap-y-1">
                             <span>{data.title}</span>
                             {data.isDevelop && <span className="text-xs">(Đang phát triển)</span>}
