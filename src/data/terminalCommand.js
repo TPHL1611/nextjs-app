@@ -20,24 +20,18 @@ export const commands = [
         command_description: "Kĩ năng",
     },
 ];
-export const commandAboutPage = [
-    {
-        id: 5,
-        command_name: "personal",
-        command_description: "Thông tin cá nhân",
-    },
-];
-export const commandProjectPage = [
-    {
-        id: 5,
-        command_name: "ls",
-        command_description: "Hiển thị dự án",
-    },
-];
-export const commandSkillPage = [
-    {
-        id: 5,
-        command_name: "sk",
-        command_description: "Hiển thị kĩ năng",
-    },
-];
+export const commandAboutPage = {
+    id: 5,
+    command_name: "personal",
+    command_description: "Thông tin cá nhân",
+};
+export const commandProjectPage = {
+    id: 6,
+    command_name: "ls",
+    command_description: "Hiển thị dự án",
+};
+export const commandSkillPage = {
+    id: 7,
+    command_name: "sk",
+    command_description: "Hiển thị kĩ năng",
+};
