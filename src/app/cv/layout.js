@@ -9,10 +9,12 @@ import TerminalInput from "./components/TerminalInput";
 import { commands } from "@/data/terminalCommand";
 import { usePathname } from "next/navigation";
 import { getErrorDescriptionForCommand } from "@/utils/getErrorDescriptionForCommand";
+import * as rdd from "react-device-detect";
 
 export const HistoryContext = createContext(null);
 
 export default function CVRootLayout({ children }) {
+    console.log(rdd.isMobile);
     const inputRef = useRef(null);
 
     const [isTerminalClose, setIsTerminalClose] = useState(false);
@@ -44,20 +46,20 @@ export default function CVRootLayout({ children }) {
                     ]);
                 }
             }
-            inputRef.current.scrollIntoView();
             setValueCommand("");
+            inputRef.current.scrollIntoView();
         }
     }
 
     return (
         <HistoryContext.Provider value={historyCommands}>
             <main className="flex min-h-screen flex-col justify-center bg-[#202020] p-24 relative font-jet-regular">
-                <Link
+                {/* <Link
                     href="/"
                     className="w-full text-white flex gap-3 items-center mb-8 max-w-[600px] mx-auto underline underline-offset-8">
                     <FaLongArrowAltLeft />
                     <span>Trang chủ</span>
-                </Link>
+                </Link> */}
                 <div
                     className={twMerge(
                         "h-full min-h-[500px] max-h-[500px] w-full max-w-[600px] rounded-xl overflow-hidden flex flex-col shadow-2xl shadow-[#ffffff1c] duration-200 mx-auto",
