@@ -16,6 +16,9 @@ export function getErrorDescriptionForCommand(command) {
         case "sk":
             desc = "show_skill";
             break;
+        case "fn":
+            desc = "function";
+            break;
         default:
             desc = "not_supported";
             break;

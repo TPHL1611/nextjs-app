@@ -1,9 +1,14 @@
-import { PrefixCommand } from "./PrefixCommand";
-
 export function About() {
     return (
         <>
             <div className="text-sm mt-6 flex flex-col gap-y-4">
+                <div className="avatar h-[280px] w-[280px] md:h-[300px] md:w-[300px] mb-4">
+                    <img
+                        src="../avatar.jpg"
+                        alt=""
+                        className="w-full h-full object-cover rounded-full"
+                    />
+                </div>
                 <p>
                     <b>Họ tên</b>: Trần Phan Hải Long
                 </p>

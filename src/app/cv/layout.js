@@ -67,7 +67,7 @@ export default function CVRootLayout({ children }) {
                         />
                         <div className="terminal--wrap">
                             {children}
-                            <div className="mt-3 md:mt-6">
+                            <div className="mt-3">
                                 <TerminalInput
                                     ref={inputRef}
                                     valueCommand={valueCommand}

@@ -10,6 +10,11 @@ export const HighlightProjects = [
         description: "",
     },
     {
+        title: "SavingBooking",
+        url: "https://savingbooking.com/",
+        description: "",
+    },
+    {
         title: "Clone google font cơ bản",
         url: "https://putafonts.com",
         description: "",
@@ -32,6 +37,11 @@ export const HighlightProjects = [
     {
         title: "Ba Vì Lakeview",
         url: "https://bavilakeview.com/",
+        description: "",
+    },
+    {
+        title: "PutaAcademy",
+        url: "https://putaacademy.com/",
         description: "",
     },
 ];

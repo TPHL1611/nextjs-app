@@ -35,3 +35,8 @@ export const commandSkillPage = {
     command_name: "sk",
     command_description: "Hiển thị kĩ năng",
 };
+export const functionProjectPage = {
+    id: 8,
+    command_name: "fn",
+    command_description: "Hiển thị các chức năng đã từng làm",
+};
