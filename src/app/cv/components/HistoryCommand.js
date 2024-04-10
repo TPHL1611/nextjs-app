@@ -6,6 +6,7 @@ import { SuggestCommand } from "./SuggestCommand";
 import { ProjectList } from "./ProjectList";
 import { About } from "./About";
 import { Skill } from "./Skill";
+import { Functional } from "./Functional";
 
 export function HistoryCommand() {
     const historyCommands = useContext(HistoryContext);
@@ -64,6 +65,16 @@ export function HistoryCommand() {
                             <PrefixCommand />
                             <span className="ml-2">{historyCommand.command}</span>
                             <Skill />
+                        </div>
+                    );
+                } else if (historyCommand.error == "function") {
+                    return (
+                        <div
+                            key={historyCommand.id}
+                            className="mt-3 text-xs flex items-center flex-wrap">
+                            <PrefixCommand />
+                            <span className="ml-2">{historyCommand.command}</span>
+                            <Functional />
                         </div>
                     );
                 }

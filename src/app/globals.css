@@ -55,6 +55,10 @@ body {
 .skill-list a p:hover svg {
     fill: var(--color);
 }
+.avatar {
+    -webkit-mask-image: url("/layer-mask.png");
+    -webkit-mask-repeat: no-repeat;
+}
 
 @layer utilities {
     .text-balance {

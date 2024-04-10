@@ -4,6 +4,7 @@ import {
     commandProjectPage,
     commandSkillPage,
     commands,
+    functionProjectPage,
 } from "@/data/terminalCommand";
 import { usePathname } from "next/navigation";
 import { twMerge } from "tailwind-merge";
@@ -13,13 +14,12 @@ export function SuggestCommand() {
     var suggestCommands;
     if (pathname == "/cv/about") {
         suggestCommands = [...commands, commandAboutPage];
-        console.log(suggestCommands);
     } else if (pathname == "/cv/skill") {
         suggestCommands = [...commands, commandSkillPage];
     } else if (pathname == "/cv/project") {
-        suggestCommands = [...commands, commandProjectPage];
+        suggestCommands = [...commands, commandProjectPage, functionProjectPage];
     } else {
-        suggestCommands = [...commands];
+        suggestCommands = commands;
     }
     return (
         <div className="flex flex-col gap-y-1">
