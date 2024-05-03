@@ -1,13 +1,11 @@
 "use client";
 import { twMerge } from "tailwind-merge";
 import { IoTerminal } from "react-icons/io5";
-import { FaLongArrowAltLeft } from "react-icons/fa";
-import Link from "next/link";
-import { useState, useRef, createContext, useContext, useEffect } from "react";
+import { useState, useRef, createContext } from "react";
 import TerminalHeader from "./components/TerminalHeader";
 import TerminalInput from "./components/TerminalInput";
 import { commands } from "@/data/terminalCommand";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { getErrorDescriptionForCommand } from "@/utils/getErrorDescriptionForCommand";
 import Div100vh from "react-div-100vh";
 
@@ -15,6 +13,7 @@ export const HistoryContext = createContext(null);
 
 export default function CVRootLayout({ children }) {
     const inputRef = useRef(null);
+    const router = useRouter();
 
     const [isTerminalClose, setIsTerminalClose] = useState(false);
     const [valueCommand, setValueCommand] = useState("");
@@ -28,7 +27,7 @@ export default function CVRootLayout({ children }) {
                 }
             });
             if (newCommand.length > 0 && newCommand[0].command_name != "cls") {
-                window.location.href = `/cv/${newCommand[0].command_name}`;
+                router.push(`/cv/${newCommand[0].command_name}`);
             } else {
                 let errorDesc = getErrorDescriptionForCommand(valueCommand);
                 if (errorDesc == "clear_screen") {
