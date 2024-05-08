@@ -59,6 +59,18 @@ body {
     -webkit-mask-image: url("/layer-mask.png");
     -webkit-mask-repeat: no-repeat;
 }
+.forecast-component-item {
+    background: radial-gradient(ellipse at top, #53c8df82, transparent),
+        radial-gradient(#fe8d6171, transparent);
+}
+.today-highlight-component {
+    background: radial-gradient(ellipse at bottom, #53c8df38, transparent),
+        radial-gradient(ellipse at top, #53c8df38, transparent);
+}
+.today-component:before {
+    @apply content-[''] absolute w-full h-full top-0 left-0 bg-black/[.3];
+    backdrop-filter: blur(1px);
+}
 
 @layer utilities {
     .text-balance {
