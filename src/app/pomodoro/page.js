@@ -84,7 +84,7 @@ export default function Pomodoro() {
     };
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between py-12 px-24 bg-[#111827]">
+        <main className="flex min-h-screen flex-col items-center justify-between py-12 px-5 md:px-24 bg-[#111827]">
             <div className="max-w-[600px] w-full">
                 {/* Header */}
                 <Header onSettingClick={handleShow} />
@@ -130,24 +130,27 @@ export default function Pomodoro() {
                                 }}
                             />
                         </div>
-                        <div className="flex gap-x-3">
+                        <div className="flex flex-wrap md:flex-nowrap gap-x-3 gap-y-2 md:gap-y-0">
                             <Setting
                                 ref={pomoInputRef}
                                 inputID="pomo"
                                 valueTime={pomodoroTime}
                                 setValueTime={setPomodoroTime}
+                                label="Pomodoro"
                             />
                             <Setting
                                 ref={shortInputRef}
                                 inputID="short"
                                 valueTime={shortBreak}
                                 setValueTime={setShortBreak}
+                                label="Short break"
                             />
                             <Setting
                                 ref={longInputRef}
                                 inputID="long"
                                 valueTime={longBreak}
                                 setValueTime={setLongBreak}
+                                label="Long break"
                             />
                         </div>
                         <div className="mt-5">
