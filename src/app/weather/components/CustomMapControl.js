@@ -19,7 +19,7 @@ export default function CustomMapControl({ location, onPlaceSelect }) {
                 defaultCenter={defaultCenter}
                 mapId={"a7fed9fa86696bb2"}
                 fullscreenControl={false}
-                className="w-100 h-[700px] rounded-2xl">
+                className="w-100 h-[400px] md:h-[500px] xl:h-[700px] rounded-2xl">
                 {!isDirection ? (
                     <AdvancedMarker
                         position={
