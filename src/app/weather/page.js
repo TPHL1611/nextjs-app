@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Today from "./components/Today";
 import Forecast from "./components/Forecast";
 import { monthNames } from "@/data/monthsArrayText";
@@ -13,7 +13,8 @@ import {
     reverseGeocoding,
 } from "@/utils/fetchData";
 import CustomMapControl from "./components/CustomMapControl";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+import { twMerge } from "tailwind-merge";
 
 const WeatherAppContext = createContext(null);
 export { WeatherAppContext };
@@ -33,6 +34,7 @@ export default function Weather() {
     const [isDirection, setIsDirection] = useState(false);
     const [autoRedirection, setAutoRedirection] = useState(false);
     const [inputValue, setInputValue] = useState("");
+    const [isShowDirection, setIsShowDirection] = useState(false);
     const valueContext = {
         inputValue,
         setInputValue,
@@ -107,12 +109,34 @@ export default function Weather() {
         <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
             <Toaster position="top-right" />
             <WeatherAppContext.Provider value={valueContext}>
-                <div className="p-20 min-h-screen">
+                <div className="p-5 md:p-20 min-h-screen">
                     <div className="container mx-auto">
-                        <div className="flex gap-x-5">
-                            <div className="w-1/4">
+                        <div className="flex gap-x-3 md:hidden">
+                            <button
+                                className={twMerge(
+                                    "flex flex-1 items-center justify-center border border-white py-2 text-sm rounded-lg duration-300",
+                                    !isShowDirection ? "bg-white text-black" : null
+                                )}
+                                onClick={() => setIsShowDirection(false)}>
+                                Thời tiết
+                            </button>
+                            <button
+                                className={twMerge(
+                                    "flex flex-1 items-center justify-center border border-white py-2 text-sm rounded-lg duration-300",
+                                    isShowDirection ? "bg-white text-black" : null
+                                )}
+                                onClick={() => setIsShowDirection(true)}>
+                                Chỉ đường
+                            </button>
+                        </div>
+                        <div className="mt-5 xl:mt-0 flex flex-wrap">
+                            <div
+                                className={twMerge(
+                                    "w-full xl:w-1/4 md:flex md:flex-wrap gap-x-6 mb-8 xl:mb-0",
+                                    !isShowDirection ? "block" : "hidden"
+                                )}>
                                 <div
-                                    className="px-6 py-8 today-component relative rounded-2xl mb-8"
+                                    className="px-6 py-8 today-component relative rounded-2xl w-full lg:w-3/5 mb-8 lg:mb-0 xl:w-full xl:mb-8"
                                     style={{
                                         backgroundImage: backgroundCity,
                                         backgroundPosition: "center",
@@ -133,7 +157,11 @@ export default function Weather() {
                                     <Forecast forecast={forecast} />
                                 )}
                             </div>
-                            <div className="w-3/4">
+                            <div
+                                className={twMerge(
+                                    "w-full xl:w-3/4 md:block xl:pl-5",
+                                    isShowDirection ? "block" : "hidden"
+                                )}>
                                 {location ? (
                                     <CustomMapControl
                                         location={location}

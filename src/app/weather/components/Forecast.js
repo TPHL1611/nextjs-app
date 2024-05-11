@@ -53,7 +53,7 @@ export default function Forecast({ forecast }) {
     });
 
     return (
-        <>
+        <div className="md:flex-1 flex flex-col w-full">
             <div className="flex justify-between items-center">
                 <p>{displayCount} days Forecast</p>
                 <select
@@ -67,7 +67,7 @@ export default function Forecast({ forecast }) {
                     ))}
                 </select>
             </div>
-            <div className="forecast-component-item rounded-2xl p-6 mt-5">
+            <div className="forecast-component-item rounded-2xl p-6 mt-5 flex-1">
                 {forecastDayList.slice(0, displayCount).map((forecastDay, index) => (
                     <div key={index} className="flex items-center justify-between">
                         <div className="flex items-center gap-x-2 w-1/3">
@@ -83,6 +83,6 @@ export default function Forecast({ forecast }) {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 }

@@ -58,7 +58,7 @@ export default function AutoCompleteSearch({
             setInputValue(value);
             fetchPredictions(value);
         },
-        [fetchPredictions, setInputValue, setIsDirection]
+        [fetchPredictions]
     );
     const handleSuggestionClick = useCallback(
         (placeId, structured_formatting) => {
@@ -103,14 +103,10 @@ export default function AutoCompleteSearch({
             sessionToken,
             placesService,
             onPlaceSelect,
-            setInputValue,
             autoRedirection,
             endAddressDirection,
             startAddressDirection,
             isSetLocationAndFetchImageCity,
-            setIsDirection,
-            setLocation,
-            setBackgroundCity,
         ]
     );
     return (
@@ -120,7 +116,7 @@ export default function AutoCompleteSearch({
                 onChange={(event) => onInputChange(event)}
                 placeholder="Nhập địa điểm cần tìm"
                 className={twMerge(
-                    "text-black py-3 px-4 w-full rounded-3xl border-b border-black/[.2]",
+                    "text-black py-3 px-4 text-sm w-full rounded-3xl border-b border-black/[.2]",
                     classInput,
                     predictionResults.length > 0 ? "rounded-bl-none rounded-br-none" : null
                 )}
