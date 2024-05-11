@@ -16,7 +16,7 @@ export function Timer({
 }) {
     const options = ["Pomodoro", "Short break", "Long break"];
     return (
-        <div className="flex flex-col items-center mt-14">
+        <div className="flex flex-col items-center mt-8 md:mt-14">
             <ul className="flex gap-x-4">
                 {options.map((option, index) => (
                     <li
@@ -43,7 +43,7 @@ export function Timer({
                     </li>
                 ))}
             </ul>
-            <div className="my-16 text-8xl font-bold text-white">
+            <div className="my-10 md:my-16 text-8xl font-bold text-white">
                 {showCurrentTabValueInTimer()}:{seconds.toString().padStart(2, "0")}
             </div>
             <div className="flex items-center justify-center">

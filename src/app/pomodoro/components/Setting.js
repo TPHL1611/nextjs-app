@@ -2,9 +2,11 @@ import React from "react";
 
 const Setting = React.forwardRef((props, ref) => {
     return (
-        <div className="flex flex-col items-center">
-            <label htmlFor={props.inputID} className="text-sm font-mt-semibold text-black">
-                Thời gian
+        <div className="flex w-full md:flex-col md:w-auto items-center">
+            <label
+                htmlFor={props.inputID}
+                className="text-sm font-mt-semibold text-black min-w-fit mr-7">
+                {props.label}
             </label>
             <input
                 id={props.inputID}

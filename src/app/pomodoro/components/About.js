@@ -1,11 +1,11 @@
 export function About() {
     return (
-        <div className="w-11/12 mx-auto mt-20 text-white p-5">
+        <div className="w-11/12 mx-auto mt-14 text-white md:mt-20 md:p-5">
             <div>
                 <h1 className="text-xl sm:text-2xl font-medium">
                     <span className="border-b-4 border-red-400 ">What</span> is Pomodoro Technique?
                 </h1>
-                <p className="mt-5 tracking-wide opacity-70 text-lg">
+                <p className="mt-5 tracking-wide opacity-70 md:text-lg">
                     The Pomodoro Technique is created by Francesco Cirillo for a more productive way
                     to work and study. The technique uses a timer to break down work into intervals,
                     traditionally 25 minutes in length, separated by short breaks. Each interval is
@@ -17,7 +17,7 @@ export function About() {
                 <h1 className="text-xl sm:text-2xl font-medium">
                     <span className="border-b-4 border-red-400 ">What</span> is Daily Focus?
                 </h1>
-                <p className="mt-5 tracking-wide opacity-70 text-lg break-words">
+                <p className="mt-5 tracking-wide opacity-70 md:text-lg break-words">
                     Daily Focus is small clone project from
                     <a href="https://pomofocus.io/" target="_blank" className="underline mx-1">
                         https://pomofocus.io/.
