@@ -26,5 +26,6 @@ export const homeData = [
         id: 7,
         title: "Chat app",
         url: "https://tphl1611-chat.vercel.app",
+        isDevelop: false,
     },
 ];
