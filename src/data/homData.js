@@ -11,31 +11,21 @@ export const homeData = [
         url: "pomodoro",
         isSameDomain: true,
     },
-    // {
-    //     id: 3,
-    //     title: "MyTour Clone",
-    //     url: "mytourclone",
-    //     isDevelop: true,
-    //     isSameDomain: true,
-    // },
     {
         id: 4,
         title: "Weather Clone App",
         url: "weather",
-        isDevelop: false,
-        isSameDomain: false,
+        isSameDomain: true,
     },
-    // {
-    //     id: 5,
-    //     title: "Search Movie Clone App",
-    //     url: "movie",
-    //     isDevelop: true,
-    // },
     {
         id: 6,
         title: "Note Clone App",
         url: "https://tphl1611-notion-clone.vercel.app",
+    },
+    {
+        id: 7,
+        title: "Chat app",
+        url: "https://tphl1611-chat.vercel.app",
         isDevelop: false,
-        // isSameDomain: false,
     },
 ];
